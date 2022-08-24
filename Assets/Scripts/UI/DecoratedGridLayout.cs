@@ -102,6 +102,8 @@ namespace UI
                 m_RTForm.rect.width / width,
                 m_RTForm.rect.height / height);
             m_InternalGridLayout.cellSize = new Vector2(size, size);
+
+            LayoutRebuilder.ForceRebuildLayoutImmediate(m_RTForm);
         }
     }
 }

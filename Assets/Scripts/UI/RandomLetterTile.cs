@@ -36,6 +36,7 @@ namespace UI
 
         public void FitTarget(float progress)
         {
+            Debug.Log(m_Target.gameObject.name + " " + m_Target.sizeDelta);
             m_ProgressCache = progress;
             m_Self.localPosition = Vector3.Lerp(m_StartPosition, m_TargetPosCache, progress);
             m_Self.localScale = Vector2.Lerp(m_StartScale, m_Target.sizeDelta / m_Self.sizeDelta, progress);
