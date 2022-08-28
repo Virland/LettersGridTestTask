@@ -1,7 +1,5 @@
-using UnityEngine;
 using System.Collections.Generic;
-using System.Threading.Tasks;
-using System.Linq;
+using UnityEngine;
 
 namespace Extensions
 {
@@ -43,17 +41,5 @@ namespace Extensions
                 v.y / by.y
             );
         }
-
-        public static void ScaleToFit(this RectTransform self, RectTransform to)
-        {
-
-        }
-
-        /*
-        public static async Task InvokeAsync(this Delegate d)
-        {
-            await Task.WhenAll(d.GetInvocationList().Select(x => Task.Run(() => { x.i(); })));
-        }
-        */
     }
 }
