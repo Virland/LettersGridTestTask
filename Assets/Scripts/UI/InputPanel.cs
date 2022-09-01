@@ -2,9 +2,8 @@ using System;
 using UnityEngine;
 using UnityEngine.UI;
 using Validation;
-using Extensions;
 
-namespace Input
+namespace UI
 {
     public class InputPanel : MonoBehaviour
     {
@@ -22,6 +21,16 @@ namespace Input
             if (!widthInputField.TryGetValidValue(GetPositiveInteger, out w)) return;
             if (!heightInputField.TryGetValidValue(GetPositiveInteger, out h)) return;
             OnGenerateClick(w, h);
+        }
+
+        public void HandleGenerateButtonState(bool state)
+        {
+            m_GenerateButton.interactable = state;
+        }
+
+        public void HandleShuffleButtonState(bool state)
+        {
+            m_ShuffleButton.interactable = state;
         }
 
         private void ShuffleBttnHandler()

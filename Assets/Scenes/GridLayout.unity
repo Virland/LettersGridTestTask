@@ -1441,6 +1441,7 @@ GameObject:
   - component: {fileID: 1180260568}
   - component: {fileID: 1180260569}
   - component: {fileID: 1180260570}
+  - component: {fileID: 1180260571}
   m_Layer: 5
   m_Name: TileBoard
   m_TagString: Untagged
@@ -1481,8 +1482,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Grid: {fileID: 1390845665}
-  m_Prefab: {fileID: -4411305135086275300, guid: 49ef83acc46a6e848bee6893463fecff, type: 3}
   shuffleAnimationLength: 2
+  m_Pool: {fileID: 1180260571}
 --- !u!223 &1180260570
 Canvas:
   m_ObjectHideFlags: 0
@@ -1504,6 +1505,21 @@ Canvas:
   m_SortingLayerID: 0
   m_SortingOrder: 0
   m_TargetDisplay: 0
+--- !u!114 &1180260571
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1180260567}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 991cc9c76d6d2ef47b0b35f02363b26e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_InitialCount: 10
+  m_ExtendCount: 10
+  m_SourceObject: {fileID: 535870114112347291, guid: 49ef83acc46a6e848bee6893463fecff, type: 3}
 --- !u!1 &1211080265
 GameObject:
   m_ObjectHideFlags: 0
@@ -1581,6 +1597,7 @@ GameObject:
   - component: {fileID: 1390845662}
   - component: {fileID: 1390845663}
   - component: {fileID: 1390845665}
+  - component: {fileID: 1390845664}
   m_Layer: 5
   m_Name: Grid
   m_TagString: Untagged
@@ -1631,6 +1648,21 @@ MonoBehaviour:
   m_Spacing: {x: 0, y: 0}
   m_Constraint: 1
   m_ConstraintCount: 2
+--- !u!114 &1390845664
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1390845661}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3e13d863c43493a429f8c7de4f261887, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_InitialCount: 10
+  m_ExtendCount: 10
+  m_SourceObject: {fileID: 8277326008678120368, guid: 7d5e5ea4b6b7b234aaf97edc60f3fce8, type: 3}
 --- !u!114 &1390845665
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1643,6 +1675,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 237b4e609ff2ef04c948e1f970b32812, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  m_Pool: {fileID: 1390845664}
 --- !u!1 &1421721808
 GameObject:
   m_ObjectHideFlags: 0

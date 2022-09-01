@@ -1,19 +1,17 @@
-using Input;
 using System;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
 using UnityEngine;
 using UnityEngine.EventSystems;
 using UnityEngine.UI;
-using Extensions;
 
-namespace UI
+namespace Grid
 {
     [ExecuteAlways]
     [RequireComponent(typeof(GridLayout), typeof(RectTransform))]
     public class DecoratedGridLayout : UIBehaviour
     {
-        public event Action OnGridSizeChange = delegate { };
+        [SerializeField] private RectTransformPool m_Pool;
 
         public int Width { get => m_Width; }
         public int Height { get => m_Height; }
@@ -49,23 +47,28 @@ namespace UI
 
             m_InternalGridLayout.constraintCount = width;
 
-            UpdateActiveCellsCount();
+            UpdateCellsCount();
             RecalculateCellsDimension();
-
-            OnGridSizeChange();
         }
 
-        private void UpdateActiveCellsCount()
+        private void UpdateCellsCount()
         {
             int newCellCount = m_Width * m_Height;
-            int max = Mathf.Max(m_Cells.Count, newCellCount);
-            for (int i = 0; i < max; i++)
+
+            for (int i = 0; i < newCellCount; i++)
             {
                 if (i >= m_Cells.Count)
                 {
-                    m_Cells.Add(m_RTForm.AddEmptyChild(i.ToString()));
+                    m_Cells.Add(m_Pool.Get());
+                    m_Cells[i].SetParent(transform, false);
                 }
-                m_Cells[i].gameObject.SetActive(i < newCellCount);
+            }
+
+            for (int i = m_Cells.Count - 1; i >= newCellCount; i--)
+            {
+                Debug.Log(m_Cells.Count + " " + newCellCount + " " + i);
+                m_Pool.Return(m_Cells[i]);
+                m_Cells.RemoveAt(i);
             }
         }
 

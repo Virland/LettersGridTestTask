@@ -2,7 +2,7 @@ using TMPro;
 using UnityEngine;
 using Extensions;
 
-namespace UI
+namespace Grid
 {
     public class RandomLetterTile : MonoBehaviour, ITile
     {
