@@ -70,8 +70,6 @@ namespace Grid
 
         private async Task PlayShuffle()
         {
-            UpdateState();
-
             m_Tiles.Shuffle(m_ActualSize);
 
             for (int i = 0; i < m_ActualSize; i++)
@@ -80,6 +78,8 @@ namespace Grid
             }
 
             m_AnimationProgress = 0f;
+
+            UpdateState();
 
             while (m_AnimationProgress < 1f)
             {
